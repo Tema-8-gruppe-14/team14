@@ -1,29 +1,31 @@
+---
+import TestimonialsCard from "./TestimonialsCard.astro"
+---
+
 <section>
-    <div class="testimonials">
-        <div class="testimonial">
-            <p>
-                “Det har betydet meget at få forståelse, støtte og opbakning samt råd fra så dygtige folk (...) “
-            </p>
-            <div class="stars">
-            ★★★★☆
+    <div class="carousel-testimonials">
+        <div class="carousel">
+            <div class="testimonial">
+                <TestimonialsCard text=" Det har betydet meget at få forståelse, støtte og opbakning samt råd fra så dygtige folk (...) " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Rigtig fin introducerende samtale. Jeg kan allerede mærke, at det bliver en kæmpe hjælp. Jeg følte mig mere end tilpas. " rating={4} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Det er en befrielse, at en rådgiver med erfaring og viden vil lytte til én, forstår én og kommer med råd til håndtering af situationen. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Det giver ro i sjælen at få en snak med et udenforstående, lyttende menneske. Så kan man bedre være i det. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Rådgiveren gjorde, at jeg nemt kunne fortælle om mig selv, åbne op om mine erfarringer og uddybe mit misbrug. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Mine samtaler med min rådgiver er meget givende, han er god til at finde ind til kernen af problemerne. Er dybt taknemlig.. " rating={4} />
             </div>
         </div>
-        <div class="testimonial">
-            <p>
-                “Det har betydet meget at få forståelse, støtte og opbakning samt råd fra så dygtige folk (...) “
-            </p>
-            <div class="stars">
-            ★★★★☆
-            </div>
-        </div>
-        <div class="testimonial">
-            <p>
-                “Det har betydet meget at få forståelse, støtte og opbakning samt råd fra så dygtige folk (...) “
-            </p>
-            <div class="stars">
-            ★★★★☆
-            </div>
-        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
     </div>
 </section>
 
@@ -35,35 +37,78 @@
         min-height: 300px;
     }
 
-    p {
-        font-size: 1.3rem;
-        color: var(--white);
-        text-align: center;
-    }
-
-    .testimonials {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
+    .carousel-testimonials {
+        position: relative;
         max-width: 90svw;
         margin-inline: auto;
+        overflow: hidden;
+    }
+
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
     }
 
     .testimonial {
+        flex: 0 0 33.333%; /* Each testimonial takes up 1/3 of the carousel width */
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
+        box-sizing: border-box;
         padding: 1rem;
-        border-radius: 10px;
-        max-width: 350px;
     }
 
-    .stars {
-    color: var(--lightblue); /* Use the lightblue variable */
-    font-size: 1.5rem; /* Adjust size as needed */
-    margin-top: 0.5rem;
-}
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent; 
+        border: none; 
+        color: var(--white);
+        font-size: 1.2rem; 
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
 </style>
+
+<script>
+    let currentIndex = 0;
+
+    // Define the moveSlide function and attach it to the global window object
+    window.moveSlide = function (direction) {
+        const carousel = document.querySelector('.carousel');
+        const testimonials = document.querySelectorAll('.testimonial');
+        const totalTestimonials = testimonials.length;
+
+        // Number of testimonials visible per page
+        const visibleTestimonials = 3;
+
+        // Calculate the total number of pages
+        const totalPages = Math.ceil(totalTestimonials / visibleTestimonials);
+
+        // Update the current index
+        currentIndex = (currentIndex + direction + totalPages) % totalPages;
+
+        // Calculate the offset for the slide
+        const offset = -currentIndex * (100 / visibleTestimonials);
+
+        // Apply the transform to the carousel with a sliding effect
+        carousel.style.transform = `translateX(${offset}%)`;
+    };
+
+    // Ensure the carousel remains centered on window resize
+    window.addEventListener('resize', () => {
+        const carousel = document.querySelector('.carousel');
+        const offset = -currentIndex * (100 / 3); // 3 testimonials visible per page
+        carousel.style.transform = `translateX(${offset}%)`;
+    });
+</script>
