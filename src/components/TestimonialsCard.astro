@@ -1,0 +1,48 @@
+---
+export interface Props {
+    text: string;
+    rating: number; // Rating as a number (e.g., 4 for 4 stars)
+}
+
+const { text, rating } = Astro.props;
+---
+
+<div class="testimonial">
+    <p>
+        <q>{text}</q>
+    </p>
+    <div class="stars">
+        {Array.from({ length: 5 }).map((_, index) => (
+            index < rating ? '★' : '☆'
+        ))}
+    </div>
+</div>
+
+<style>
+    .testimonial {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 1rem;
+        border-radius: 10px;
+        max-width: 350px;
+        flex-shrink: 0;
+        width: 100%; 
+        height: 250px; 
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    p {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin: 0; /* Remove default margin for consistent spacing */
+    }
+
+    .stars {
+        color: var(--lightblue);
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+    }
+</style>
