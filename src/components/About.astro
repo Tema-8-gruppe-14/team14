@@ -1,6 +1,19 @@
+---
+
+---
+
 <section>
     <div class="container">
-        <div>
+        <div class="team-grid">
+            <img src="/src/assets/team1.jpg" alt="Team member 1" class="item-1" />
+            <img src="/src/assets/team2.jpg" alt="Team member 2" class="item-2" />
+            <img src="/src/assets/team3.jpg" alt="Team member 3" class="item-3" />
+            <img src="/src/assets/team4.jpg" alt="Team member 4" class="item-4" />
+            <img src="/src/assets/team5.jpg" alt="Team member 5" class="item-5" />
+            <img src="/src/assets/team6.jpg" alt="Team member 6" class="item-6" />
+        </div>
+
+        <div class="text-content">
             <h1>Hvem er vi?</h1>
             <p>
                 Vi har mere end <span class="highlight">10 års erfaring</span> med <span class="highlight">hjælp 
@@ -13,47 +26,114 @@
                 eller misbrugere sidder med. 
             </p>
         </div>
-        <div>
-            <img src="/img/about.jpg" alt="Billede af teamet" />
-        </div>
     </div>
 </section>
-
-<span class="highlight"></span>
 
 <style>
     section {
         padding: 3rem;
         background: var(--green);
+        min-height: 60svh;
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 600px;
+    }
+
+    span {
+        color: var(--blue);
     }
 
     .container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 1rem;
     }
 
-    h1 {
-        font-size: 4rem;
-        color: var(--black);
+    .text-content {
+        flex: 1;
     }
 
-    p {
-        font-size: 1rem;
-        color: var(--black);
+    .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .highlight {
-        color: var(--blue);
-    }
-
-    img {
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 150px);
+        gap: 1rem;
+        position: relative;
         width: 100%;
+        max-width: 400px;
+    }
+
+    .team-grid img {
+        width: 150px;
         height: auto;
-        border-radius: 10px;
+        object-fit: cover;
+        border-radius: 20px;
+        filter: grayscale(100%);
+        position: absolute;
+        transition: transform 0.3s ease;
+    }
+
+    /* Custom positions for each image */
+    .item-1 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 2;
+        transform: translate(-10px, -90px);
+    }
+
+    .item-2 {
+        grid-column: 3 / 4; 
+        grid-row: 1; 
+        transform: translate(-70px, 10px);
+    }
+
+    .item-3 {
+        grid-column: 2 / 3;
+        grid-row: 2; 
+        transform: translate(30px, 5px); 
+    }
+
+    .item-4 {
+        grid-column: 1 / 2; 
+        grid-row: 3 / 4; 
+        transform: translate(20px, -50px); 
+    }
+
+    .item-5 {
+        grid-column: 4 / 5;
+        grid-row: 3 / 4; 
+        transform: translate(-55px, -20px); 
+    }
+
+    .item-6 {
+        grid-column: 4 / 5; 
+        grid-row: 2 / 3;
+        transform: translate(-45px, -50px); 
+    }
+
+    @media (min-width: 1290px) {
+        h1 {
+            font-size: 4rem;
+        }
+        .container {
+            flex-direction: row;
+            gap: 3rem;
+        }
+        .team-grid {
+            order: 1;
+        }
     }
 </style>
