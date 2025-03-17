@@ -1,0 +1,56 @@
+<section>
+    <div class="container">
+        <div class="circle circle-1" />
+        <div class="circle circle-2" />
+        <div class="circle circle-3" />
+    </div>
+</section>
+
+<style>
+    section {
+        padding: 1rem;
+        background: var(--green);
+        min-height: 60svh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    .circle {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: var(--white);
+        background-size: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .circle-1 {
+        background-image: url('/src/assets/circle-01.svg');
+    }
+
+    .circle-2 {
+        background-image: url('/src/assets/circle-02.svg');
+    }
+
+    .circle-3 {
+        background-image: url('/src/assets/circle-03.svg');
+    }
+
+    @media (min-width: 768px) {
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            width: 100%;
+        }
+    }
+</style>
