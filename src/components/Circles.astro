@@ -1,0 +1,57 @@
+<section>
+    <div class="container">
+        <a class="circle circle-1" href="https://www.misbrugsportalen.dk/raadgivningstilbud/samtaleforloeb.aspx" />
+        <a class="circle circle-2" href="https://www.misbrugsportalen.dk/raadgivningstilbud/akutraadgivning.aspx" />
+        <a class="circle circle-3" href="https://www.misbrugsportalen.dk/gruppeforloeb.aspx" />
+    </div>
+</section>
+
+<style>
+    section {
+        padding: 0.1rem;
+        background: var(--green);
+        min-height: 30svh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    .circle {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: var(--white);
+        background-size: 250px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .circle-1 {
+        background-image: url('/src/assets/circle-01.svg');
+    }
+
+    .circle-2 {
+        background-image: url('/src/assets/circle-02.svg');
+    }
+
+    .circle-3 {
+        background-image: url('/src/assets/circle-03.svg');
+    }
+
+    @media (min-width: 1290px) {
+
+        .container {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+</style>
