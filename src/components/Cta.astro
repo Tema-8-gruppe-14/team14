@@ -1,9 +1,9 @@
 ---
-const { text, icon } = Astro.props;
+const { text, src, alt = "" } = Astro.props;
 ---
 
 <button>
-    {icon && <img class="cta-icon" src={icon} alt="" />}
+    <img src={src} alt={alt} class="cta-icon">
     <span>{text}</span>
 </button>
 
@@ -16,6 +16,7 @@ button {
     padding: 0.5rem 1rem;
     background: var(--blue);
     color: var(--white);
+    font-weight: 600;
     border: none;
     border-radius: 10px;
     cursor: pointer;
