@@ -1,0 +1,40 @@
+---
+import Button from "../components/Button.astro";
+
+const { title, description, hourstitle, hours, phonenumber, button } = Astro.props;
+---
+
+<article>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <h3>{hourstitle}</h3>
+    <p set:html={hours}></p>
+    <a href={phonenumber}>{phonenumber}</a>
+    <Button text={button} class="button" />   
+</article>
+
+<style>
+    article {
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 1rem;
+        min-height: 500px;
+        position: relative; /* Ensure positioning context for the button */
+    }
+
+    h2 {
+        color: var(--black);
+    }
+
+    p {
+        color: var(--black);
+    }
+
+    .button {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+    }
+</style>

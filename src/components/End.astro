@@ -1,0 +1,61 @@
+---
+import Socials from "../components/Socials.astro";
+---
+<footer>
+    <div class="socials">
+        <Socials />
+    </div>
+    <div class="info">
+        <div>
+            <h3>
+                Åbningstider:
+            </h3>
+            <p>
+                Mandag – tirsdag    15.00 – 18.00​<br>
+                Onsdag – fredag    18.00 – 21.00<br>
+                Weekender og helligdage     lukket
+            </p>
+        </div>
+        <div>
+            <p>Akutrådgivning: 7090 9080</p>
+            <p>Sekretariat: 7060 4446</p>
+            <a href="mail@misbrugsportalen.dk">Mail@misbrugsportalen.dk</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background: var(--blue);
+        color: var(--white);
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .socials {
+        display: flex;
+        justify-content: center;
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    h3 {
+        color: var(--green);
+    }
+
+    p {
+        margin: 0;
+        color: var(--white);
+    }
+
+    a {
+        color: var(--green);
+        text-decoration: none;
+    }
+</style>
