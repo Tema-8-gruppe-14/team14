@@ -1,0 +1,60 @@
+---
+import Button from "../components/Button.astro";
+
+const { title, description, hourstitle, hours, phone, button } = Astro.props;
+---
+
+<article>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <h3>{hourstitle}</h3>
+    <p set:html={hours}></p>
+    <a href={`tel:70 90 90 80`} class="phone-link">
+        <svg width="43" height="48" viewBox="0 0 43 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5.76367" width="36.8268" height="43.025" transform="rotate(7.69797 5.76367 0)" fill="none" stroke="none" />
+        <path d="M25.1398 31.5315L27.612 29.4722C27.9931 29.151 28.4271 28.9135 28.8891 28.7741C29.3511 28.6346 29.8318 28.5958 30.3033 28.6595C30.7751 28.7233 31.2282 28.8883 31.6366 29.1455C32.0449 29.4025 32.4004 29.7468 32.6824 30.1576L34.8368 33.2561C35.1234 33.663 35.3317 34.1294 35.4493 34.6288C35.5669 35.128 35.5916 35.6503 35.5221 36.1647C35.4526 36.6793 35.2901 37.1762 35.0441 37.6264C34.7982 38.0765 34.4736 38.4708 34.0892 38.787L32.7671 39.9039C31.8566 40.6698 30.7535 41.1091 29.6153 41.1588C28.477 41.2084 27.3616 40.8664 26.4284 40.181C18.4171 34.1408 12.3962 25.4892 9.20419 15.4316C8.84899 14.2633 8.84634 12.994 9.19659 11.8062C9.54684 10.6184 10.232 9.57317 11.1535 8.82104L12.4755 7.70419C13.2481 7.06467 14.2149 6.77773 15.1649 6.90614C16.1149 7.03455 16.9709 7.56789 17.5459 8.38955L19.7142 11.5079C20.2845 12.3335 20.5261 13.3784 20.386 14.4148C20.2459 15.4511 19.7356 16.3945 18.9666 17.039L16.4943 19.0982C17.6347 21.3929 18.9313 23.5888 20.3734 25.6684C21.8073 27.7344 23.3869 29.6747 25.0983 31.4719L25.1398 31.5315Z" fill="none" stroke="#45484C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        70 90 90 80
+    </a>
+    <Button text={button} class="button" />   
+</article>
+
+<style>
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Ensures content is spaced properly */
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 1rem;
+        min-height: 500px;
+        position: relative;
+    }
+    h2 {
+        color: var(--black);
+    }
+    p {
+        color: var(--black);
+    }
+    .phone-link {
+        display: flex;
+        align-items: center;
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-block: 2rem;
+    }
+    .button {
+        margin-top: auto; 
+        padding: 0.5rem 1rem;
+        font-size: 1rem; 
+        align-self: flex-start; 
+        border: none;
+        border-radius: 5px; 
+        cursor: pointer; 
+        max-width: 50px;
+    }
+</style>

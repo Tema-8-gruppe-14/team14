@@ -1,0 +1,68 @@
+/*** https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth **/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  width: auto;
+}
+
+h1 {
+  font-family: var(--h1);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: var(--h1);
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: var(--p);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: var(--p);
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+a {
+  font-family: var(--p);
+}
+
+/* Styling variabler */
+
+:root {
+  --white: #fffaf4;
+  --blue: #497db3;
+  --darkblue: #3b638c;
+  --bluehover: #3a699a;
+  --blue2: #298292;
+  --lightblue: #b5e9fe;
+  --lightgrey: #f7f5e7;
+  --green: #e9f2d5;
+  --accent: #38bfb2;
+  --black: #45484c;
+  --h1: "ivypresto-display", serif;
+  --p: "mundial", sans-serif;
+}

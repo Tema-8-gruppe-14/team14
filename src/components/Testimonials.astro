@@ -1,0 +1,176 @@
+---
+import TestimonialsCard from "./TestimonialsCard.astro"
+---
+
+<section>
+    <div class="carousel-testimonials">
+        <div class="carousel">
+            <div class="testimonial">
+                <TestimonialsCard text=" Det har betydet meget at få forståelse, støtte og opbakning samt råd fra så dygtige folk (...) " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Rigtig fin introducerende samtale. Jeg kan allerede mærke, at det bliver en kæmpe hjælp. Jeg følte mig mere end tilpas. " rating={4} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Det er en befrielse, at en rådgiver med erfaring og viden vil lytte til én, forstår én og kommer med råd til håndtering af situationen. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Det giver ro i sjælen at få en snak med et udenforstående, lyttende menneske. Så kan man bedre være i det. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Rådgiveren gjorde, at jeg nemt kunne fortælle om mig selv, åbne op om mine erfarringer og uddybe mit misbrug. " rating={5} />
+            </div>
+            <div class="testimonial">
+                <TestimonialsCard text=" Mine samtaler med min rådgiver er meget givende, han er god til at finde ind til kernen af problemerne. Er dybt taknemlig.. " rating={4} />
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
+</section>
+
+<style>
+    section {
+        margin-top: 50px;
+        padding: 1rem;
+        background-color: var(--blue);
+        min-height: 300px;
+    }
+
+    .carousel-testimonials {
+        position: relative;
+        max-width: 100%; /* Full width for mobile-first */
+        margin-inline: auto;
+        overflow: hidden;
+    }
+
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .testimonial {
+        flex: 0 0 100%; /* Default to 1 testimonial per page for mobile */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent; 
+        border: none; 
+        color: var(--white);
+        font-size: 1.2rem; 
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    /* Media query for larger screens */
+    @media (min-width: 768px) {
+        .testimonial {
+            flex: 0 0 33.333%; /* Show 3 testimonials per page */
+        }
+
+        .carousel-testimonials {
+            max-width: 70svw; /* Limit width for larger screens */
+        }
+    }
+
+    /* Default for mobile-first (1 testimonial per page) */
+    .testimonial {
+        flex: 0 0 100%;
+    }
+
+    /* Medium screens (2 testimonials per page) */
+    @media (min-width: 769px) and (max-width: 1290px) {
+        .testimonial {
+            flex: 0 0 50%; /* Show 2 testimonials per page */
+        }
+    }
+
+    /* Large screens (3 testimonials per page) */
+    @media (min-width: 1291px) {
+        .testimonial {
+            flex: 0 0 33.333%; /* Show 3 testimonials per page */
+        }
+    }
+</style>
+
+<script>
+    declare global {
+        interface Window {
+            moveSlide: (direction: number) => void;
+        }
+    }
+
+    let currentIndex = 0;
+    let visibleTestimonials = 1; // Default to 1 for mobile-first design
+
+    // Function to calculate the number of visible testimonials based on window width
+    const updateVisibleTestimonials = () => {
+        const windowWidth = window.innerWidth;
+
+        // Adjust the number of visible testimonials based on breakpoints
+        if (windowWidth > 1290) {
+            visibleTestimonials = 3; // Show 3 testimonials for larger screens
+        } else if (windowWidth > 768) {
+            visibleTestimonials = 2; // Show 2 testimonials for medium screens
+        } else {
+            visibleTestimonials = 1; // Show 1 testimonial for smaller screens
+        }
+
+        // Recalculate the offset to ensure the carousel is correctly positioned
+        const carousel = document.querySelector('.carousel') as HTMLElement;
+        const offset = -currentIndex * (100 / visibleTestimonials);
+        if (carousel) {
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+    };
+
+    // Define the moveSlide function and attach it to the global window object
+    window.moveSlide = function (direction: number) {
+        const carousel = document.querySelector('.carousel') as HTMLElement;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const totalTestimonials = testimonials.length;
+
+        // Calculate the maximum index based on the total number of testimonials
+        const maxIndex = totalTestimonials - visibleTestimonials;
+
+        // Update the current index and loop back if necessary
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = maxIndex; // Go to the last set of testimonials if moving backward from the first
+        } else if (currentIndex > maxIndex) {
+            currentIndex = 0; // Go to the first set of testimonials if moving forward from the last
+        }
+
+        // Calculate the offset for the slide
+        const offset = -currentIndex * (100 / visibleTestimonials);
+
+        // Apply the transform to the carousel with a sliding effect
+        if (carousel) {
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+    };
+
+    // Update the number of visible testimonials on window resize
+    window.addEventListener('resize', updateVisibleTestimonials);
+
+    // Initialize the visible testimonials on page load
+    updateVisibleTestimonials();
+</script>

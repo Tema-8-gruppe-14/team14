@@ -1,0 +1,135 @@
+---
+import "../styles/style.css"
+import Cta from "../components/Cta.astro"
+---
+
+<section>
+    <div class="hero-svg">
+        <svg width="418" height="493" viewBox="0 0 418 493" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M140.931 206.437C91.183 340.67 -14.6332 468.145 38.7027 487.912C92.0387 507.679 169.108 416.559 218.856 282.326C268.604 148.092 272.192 21.5777 218.856 1.81086C165.52 -17.956 -193.67 192.639 140.931 206.437Z" fill="#3D5222"/>
+        <path d="M300.668 208.69C250.92 342.923 145.104 470.399 198.439 490.166C251.775 509.932 328.845 418.812 378.593 284.579C428.341 150.346 431.929 23.8315 378.593 4.06467C325.257 -15.7021 -33.9336 194.892 300.668 208.69Z" fill="#497DB3"/>
+        </svg>
+    </div>
+    <div class="hero-content">
+        <h1>Er du ramt af en andens misbrug? Vi hjælper <span class="highlight">dig</span></h1>
+        <p>Anonyme og fortrolige samtaler for pårørende <br>til misbrugere</p>
+        <div class="cta-container">
+            <Cta text="Samtaleforløb" src="/src/assets/chat-icon.svg" />
+            <Cta text="Akutrådgivning" src="/src/assets/phone-icon.svg" />
+            <Cta text="Gruppeforløb" src="/src/assets/group-icon.svg" />
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        max-width: 1200px;
+        margin-inline: auto;
+        gap: 2rem;
+        padding: 3rem;
+    }
+
+    .hero-svg svg {
+        width: 100px; 
+        height: auto;
+        transition: all 0.3s;
+    }
+
+    h1 {
+        font-size: 2rem;
+        max-width: 450px;
+        position: relative;
+    }
+
+    .highlight {
+        position: relative;
+        display: inline-block;
+    }
+
+    .highlight::before {
+        content: '';
+        position: absolute;
+        top:3px; 
+        left: 55%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 52px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="71" height="52" viewBox="0 0 71 52" fill="none"><path d="M69.5 27.1628C69.5 33.2016 65.7754 38.733 59.6206 42.7782C53.4699 46.8206 44.9434 49.3372 35.5 49.3372C26.0566 49.3372 17.5301 46.8206 11.3794 42.7782C5.22455 38.733 1.5 33.2016 1.5 27.1628C1.5 21.124 5.22455 15.5926 11.3794 11.5474C17.5301 7.50497 26.0566 4.98837 35.5 4.98837C44.9434 4.98837 53.4699 7.50497 59.6206 11.5474C65.7754 15.5926 69.5 21.124 69.5 27.1628Z" stroke="%23484C4E"/><path d="M69.7774 26C69.7774 39.8071 54.5538 51 35.5 51C16.4462 51 1 39.8071 1 26C1 12.1929 16.4462 1 35.5 1" stroke="%23484C4E"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .cta-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    @media (min-width: 1290px) {
+        section {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+
+        .hero-svg {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-svg svg {
+            min-width: 400px;
+            transition: all 0.3s;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            max-width: 500px;
+        }
+
+        .highlight::before {
+        top: 5px; 
+        left: 55%;
+        width: 120px;
+        height: 90px;
+    }
+
+        p {
+            font-size: 1.25rem;
+        }
+
+        .cta-container {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .cta-container > * {
+            flex: 1;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .hero-svg svg {
+            width: 250px; 
+            transition: all 0.3s;
+        }
+    }
+</style>
