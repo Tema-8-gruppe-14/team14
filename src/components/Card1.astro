@@ -11,12 +11,16 @@ const { title, description, button } = Astro.props;
 
 <style>
     article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         padding: 3rem;
         background: rgba(255, 255, 255, 0.7);
         border-radius: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin: 1rem;
-        min-height: 400px;
+        min-height: 500px;
+        position: relative;
     }
 
     h2 {
@@ -25,5 +29,15 @@ const { title, description, button } = Astro.props;
 
     p {
         color: var(--black);
+    }
+
+    .button {
+        margin-top: auto; 
+        padding: 0.5rem 1rem;
+        font-size: 1rem; 
+        align-self: flex-start; 
+        border: none;
+        border-radius: 5px; 
+        cursor: pointer; 
     }
 </style>

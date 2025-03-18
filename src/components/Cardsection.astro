@@ -12,7 +12,10 @@ import Card2 from '../components/Card2.astro'
         <Card2 title="Akutrådgivning" description="Akutrådgivningen tilbyder gratis, fortrolige samtaler til misbrugsramte og pårørende." hourstitle="Åbningstider:" hours="Mandag - tirsdag: 15.00 - 18.00<br>Onsdag - fredag: 18.00 - 21.00" button="RING TIL OS" />
         </div>
         <div class="card card3">
-        <Card1 title="Gruppeforløb" description="​Et gruppeforløb samler pårørende med samme type pårørenderelation til online møder. Samtalerne faciliteres af vores dygtige gruppeledere. Vores nuværende grupper henvender sig til følgende pårørende: Forældre, partnere og søskende til misbrugsramte samt voksne børn opvokset i en misbrugsramt familie." phonenumber="70 90 90 80" button="LÆS MERE" />
+        <Card1 title="Gruppeforløb" 
+                description="Et gruppeforløb samler pårørende med samme type pårørenderelation til online møder. Samtalerne faciliteres af vores dygtige gruppeledere. Vores nuværende grupper henvender sig til følgende pårørende: Forældre, partnere og søskende til misbrugsramte samt voksne børn opvokset i en misbrugsramt familie." 
+                phone="70 90 90 80" 
+                button="LÆS MERE" />
         </div>
     </div>
 </section>
@@ -37,12 +40,12 @@ import Card2 from '../components/Card2.astro'
 
     @media (min-width: 768px) {
         section {
-            min-height: 200svh;
+            min-height: 180svh;
         }
         
         .container {
             grid-template-columns: auto auto auto;
-            grid-template-rows: repeat(10, 1fr);
+            grid-template-rows: repeat(9, 1fr);
         }
 
         .card1 {
