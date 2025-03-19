@@ -1,14 +1,18 @@
 ---
-const { text, src, alt = "" } = Astro.props;
+const { text, src, alt = "", href = "#" } = Astro.props;
 ---
 
-<button>
+<a href={href} class="cta">
     <img src={src} alt={alt} class="cta-icon">
     <span>{text}</span>
-</button>
+</a>
 
 <style>
-button {
+
+a {
+    font-size: 0.8rem;
+}
+.cta {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +21,7 @@ button {
     background: var(--blue);
     color: var(--white);
     font-weight: 600;
+    text-decoration: none;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -25,13 +30,23 @@ button {
 
 .cta-icon {
     display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    overflow: visible;
+    width: 2rem;
+    height: 2rem;
 }
 
-button:hover {
+.cta:hover {
     transition: all 0.3s;
     background: var(--bluehover);
+}
+
+@media (min-width: 768px) {
+    .cta-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+a {
+    font-size: 1.2rem;
+}
 }
 </style>

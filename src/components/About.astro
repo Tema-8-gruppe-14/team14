@@ -1,13 +1,21 @@
+---
+import team1 from '../assets/team1.jpg';
+import team2 from '../assets/team2.jpg';
+import team3 from '../assets/team3.jpg';
+import team4 from '../assets/team4.jpg';
+import team5 from '../assets/team5.jpg';
+import team6 from '../assets/team6.jpg';
+---
 
 <section>
     <div class="container">
         <div class="team-grid">
-            <img src="../../public/assets/team1.jpg" alt="Team member 1" class="item-1" />
-            <img src="../../public/assets/team2.jpg" alt="Team member 2" class="item-2" />
-            <img src="../../public/assets/team3.jpg" alt="Team member 3" class="item-3" />
-            <img src="../../public/assets/team4.jpg" alt="Team member 4" class="item-4" />
-            <img src="../../public/assets/team5.jpg" alt="Team member 5" class="item-5" />
-            <img src="../../public/assets/team6.jpg" alt="Team member 6" class="item-6" />
+            <img src={team1.src} alt="Team member 1" class="item-1" />
+            <img src={team2.src} alt="Team member 2" class="item-2" />
+            <img src={team3.src} alt="Team member 3" class="item-3" />
+            <img src={team4.src} alt="Team member 4" class="item-4" />
+            <img src={team5.src} alt="Team member 5" class="item-5" />
+            <img src={team6.src} alt="Team member 6" class="item-6" />
         </div>
 
         <div class="text-content">
@@ -105,7 +113,7 @@
     .item-4 {
         grid-column: 1 / 2; 
         grid-row: 3 / 4; 
-        transform: translate(20px, -50px); 
+        transform: translate(10px, -50px); 
     }
 
     .item-5 {

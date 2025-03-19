@@ -14,9 +14,9 @@ import Cta from "../components/Cta.astro"
         <h1>Er du ramt af en andens misbrug? Vi hjælper <span class="highlight">dig</span></h1>
         <p>Anonyme og fortrolige samtaler for pårørende <br>til misbrugere</p>
         <div class="cta-container">
-            <Cta text="Samtaleforløb" src="/src/assets/chat-icon.svg" />
-            <Cta text="Akutrådgivning" src="/src/assets/phone-icon.svg" />
-            <Cta text="Gruppeforløb" src="/src/assets/group-icon.svg" />
+            <Cta href="https://www.misbrugsportalen.dk/raadgivningstilbud/samtaleforloeb.aspx" text="Samtaleforløb" src="/assets/chat-icon.svg" />
+            <Cta href="https://www.misbrugsportalen.dk/raadgivningstilbud/akutraadgivning.aspx" text="Akutrådgivning" src="/assets/phone-icon.svg" />
+            <Cta href="https://www.misbrugsportalen.dk/gruppeforloeb.aspx" text="Gruppeforløb" src="/assets/group-icon.svg" />
         </div>
     </div>
 </section>
@@ -72,10 +72,18 @@ import Cta from "../components/Cta.astro"
     .cta-container {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
+        gap: 0.5rem;
         width: 100%;
+        justify-content: center;
     }
+
+    .cta-container > * {
+        flex: 1;
+        max-width: 100px; /* Reduced max-width for smaller buttons */
+        padding: 0.5rem; /* Adjust padding for smaller size */
+        font-size: 0.875rem; /* Adjust font size for smaller text */
+    }
+
     @media (min-width: 1290px) {
         section {
             display: flex;
@@ -117,12 +125,12 @@ import Cta from "../components/Cta.astro"
         }
 
         .cta-container {
-            flex-direction: row;
             justify-content: flex-start;
         }
 
         .cta-container > * {
             flex: 1;
+            max-width: 150px; /* Larger buttons for desktops */
         }
     }
 
@@ -130,6 +138,16 @@ import Cta from "../components/Cta.astro"
         .hero-svg svg {
             width: 250px; 
             transition: all 0.3s;
+        }
+
+        .cta-container {
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-container > * {
+            max-width: 120px;
+            font-size: 1rem;
         }
     }
 </style>

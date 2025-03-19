@@ -6,16 +6,25 @@ import Card2 from '../components/Card2.astro'
 <section>
     <div class="container">
         <div class="card card1">
-        <Card1 title="1:1 Samtaleforløb" description="Forløbet foregår over telefon og henvender sig ligesom akutrådgivningen til pårørende og misbrugsramte.I et samtaleforløb tilknyttes du den samme rådgiver over 4-8 samtaler, så I kan gå i dybden med de emner, der er relevante for din situation." button="LÆS MERE" />
+        <Card1 title="1:1 Samtaleforløb" 
+        description="Forløbet foregår over telefon og henvender sig ligesom akutrådgivningen til pårørende og misbrugsramte.I et samtaleforløb tilknyttes du den samme rådgiver over 4-8 samtaler, så I kan gå i dybden med de emner, der er relevante for din situation." 
+        button="LÆS MERE"
+        href="https://www.misbrugsportalen.dk/raadgivningstilbud/samtaleforloeb.aspx" />
         </div>
         <div class="card card2">
-        <Card2 title="Akutrådgivning" description="Akutrådgivningen tilbyder gratis, fortrolige samtaler til misbrugsramte og pårørende." hourstitle="Åbningstider:" hours="Mandag - tirsdag: 15.00 - 18.00<br>Onsdag - fredag: 18.00 - 21.00" button="RING TIL OS" />
+        <Card2 title="Akutrådgivning" 
+        description="Akutrådgivningen tilbyder gratis, fortrolige samtaler til misbrugsramte og pårørende." 
+        hourstitle="Åbningstider:" 
+        hours="Mandag - tirsdag: 15.00 - 18.00<br>Onsdag - fredag: 18.00 - 21.00" 
+        button="RING TIL OS"
+        href="https://www.misbrugsportalen.dk/raadgivningstilbud/akutraadgivning.aspx" />
         </div>
         <div class="card card3">
         <Card1 title="Gruppeforløb" 
-                description="Et gruppeforløb samler pårørende med samme type pårørenderelation til online møder. Samtalerne faciliteres af vores dygtige gruppeledere. Vores nuværende grupper henvender sig til følgende pårørende: Forældre, partnere og søskende til misbrugsramte samt voksne børn opvokset i en misbrugsramt familie." 
+                description="Et gruppeforløb samler pårørende med samme type pårørenderelation til online møder. Samtalerne faciliteres af vores dygtige gruppeledere.<br><br>Vores nuværende grupper henvender sig til følgende pårørende: Forældre, partnere og søskende til misbrugsramte samt voksne børn opvokset i en misbrugsramt familie." 
                 phone="70 90 90 80" 
-                button="LÆS MERE" />
+                button="LÆS MERE"
+                href="https://www.misbrugsportalen.dk/gruppeforloeb.aspx" />
         </div>
     </div>
 </section>
@@ -33,7 +42,6 @@ import Card2 from '../components/Card2.astro'
     .container {
         display: grid;
         grid-template-columns: 1fr;
-        padding: 2rem;
         max-width: 90svw;
         margin-inline: auto;
     }
@@ -45,22 +53,24 @@ import Card2 from '../components/Card2.astro'
         
         .container {
             grid-template-columns: auto auto auto;
-            grid-template-rows: repeat(9, 1fr);
+            grid-template-rows: repeat(6, 350px);
+            padding-top: 4rem;
+            padding: 2rem;
         }
 
         .card1 {
             grid-column: 3/4; 
-            grid-row: 2 / span 2;
+            grid-row: 1 / span 2;
         }
 
         .card2 {
             grid-column: 1/2; 
-            grid-row: 5 / span 2; 
+            grid-row: 3 / span 2; 
         }
 
         .card3 {
             grid-column: 3/4;
-            grid-row: 8 / span 2;
+            grid-row: 5 / span 2;
         }
     }
 </style>

@@ -20,8 +20,8 @@ import Socials from "../components/Socials.astro";
     </div>
         <div class="info contact">
             <div>
-            <p>Akutrådgivning: 7090 9080</p>
-            <p>Sekretariat: 7060 4446</p>
+                <p>Akutrådgivning: 7090 9080</p>
+                <p>Sekretariat: 7060 4446</p>
             </div>
             <div>
                 <a href="mail@misbrugsportalen.dk">Mail@misbrugsportalen.dk</a>
@@ -40,17 +40,24 @@ import Socials from "../components/Socials.astro";
 
     h3 {
         color: var(--white);
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
     }
 
     p {
-        margin: 0;
+        margin: 0.5rem 0; 
         color: var(--white);
+        line-height: 1.5; 
+        font-size: 1rem; 
     }
 
     a {
         color: var(--white);
         text-decoration: none;
-        margin-top: 20px;
+        font-weight: bold; 
+        margin-top: 1rem; 
+        display: inline-block;
     }
 
     a:hover {
@@ -58,13 +65,14 @@ import Socials from "../components/Socials.astro";
     }
 
     .info {
-        padding: 3rem;
+        padding: 2rem;
     }
 
     .contact {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        gap: 1rem; 
     }
 
     @media (min-width: 768px) {

@@ -1,7 +1,7 @@
 ---
 import Button from "../components/Button.astro";
 
-const { title, description, hourstitle, hours, phone, button } = Astro.props;
+const { title, description, hourstitle, hours, href, button } = Astro.props;
 ---
 
 <article>
@@ -16,7 +16,7 @@ const { title, description, hourstitle, hours, phone, button } = Astro.props;
         </svg>
         70 90 90 80
     </a>
-    <Button text={button} class="button" />   
+    <Button href={href} text={button} class="button" />   
 </article>
 
 <style>
